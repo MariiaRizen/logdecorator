@@ -30,14 +30,11 @@ def test_function2():
     print('hello')
 
 
-@log_decorator
-def test_function3(c):
-    return math.factorial(c)
-
+math.factorial = log_decorator(math.factorial)
 
 if __name__ == "__main__":
 
     print(test_function1(2, 5))
     print(test_function2())
-    print(test_function3(4))
+    print(math.factorial(4))
 
